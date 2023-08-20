@@ -38,15 +38,19 @@ function frame() {
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
+    // TODO: 장애물 나오는 속도 조금씩 다르게 하기
     if (timer % 100 === 0) {
         var obstacle = new Obstacle;
         obstacles.push(obstacle);
     }
     timer++;
 
-    obstacles.forEach( el =>{
-        el.draw();
-        el.x -= 3;
+    obstacles.forEach((a, i, o) =>{
+        if (a.x < 0) {
+            o.splice(i,1);
+        }
+        a.draw();
+        a.x -= 4;
     });
     
 
