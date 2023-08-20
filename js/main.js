@@ -1,12 +1,14 @@
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+
+const DEFAULT_Y = 400;
 
 canvas.setAttribute('width', window.innerWidth);
 canvas.setAttribute('height', window.innerHeight);
 
-var player = {
+let player = {
     x: 100,
-    y: 800,
+    y: DEFAULT_Y,
     width: 50, 
     height: 50,
     draw(){
@@ -18,7 +20,7 @@ var player = {
 class Obstacle {
     constructor() {
         this.x = 500;
-        this.y = 800;
+        this.y = DEFAULT_Y;
         this.width = 50;
         this.height = 50;
     }
@@ -29,8 +31,17 @@ class Obstacle {
     }
 }
 
-var obstacles = [];
-var timer = 0;
+// 점프
+let jumpTimer = 0;
+let isJumping = false;
+document.addEventListener('keydown', e => {
+    if (e.code === 'Space') {
+        isJumping = true;
+    }
+});
+
+let obstacles = [];
+let timer = 0;
 
 // 프레임마다 실행할 함수
 function frame() {
@@ -53,8 +64,21 @@ function frame() {
         a.x -= 4;
     });
     
+    // 점프
+    if (isJumping) {
+        player.y -= 5;
+        jumpTimer++;
+    }
+    if (!isJumping) {
+        if(player.y < DEFAULT_Y) player.y += 6;
+    }
+    if (jumpTimer > 30) {
+        isJumping = false;
+        jumpTimer = 0;
+    }
 
     player.draw();
     
 }
 frame();
+
