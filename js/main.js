@@ -6,6 +6,15 @@ const DEFAULT_Y = 400;
 canvas.setAttribute('width', window.innerWidth);
 canvas.setAttribute('height', window.innerHeight);
 
+// 음악 재생
+const bgm = new Audio('../resources/music/bgm.mp3');
+window.onload = () => {
+    bgm.muted = true;
+    bgm.play();
+    bgm.muted = false;
+}
+
+
 let player = {
     x: 100,
     y: DEFAULT_Y,
