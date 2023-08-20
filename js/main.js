@@ -29,8 +29,8 @@ class Obstacle {
     }
 }
 
-var obstacle = new Obstacle;
-obstacle.draw();
+var obstacles = [];
+var timer = 0;
 
 // 프레임마다 실행할 함수
 function frame() {
@@ -38,8 +38,19 @@ function frame() {
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    obstacle.draw();
-    obstacle.x -= 3;
+    if (timer % 100 === 0) {
+        var obstacle = new Obstacle;
+        obstacles.push(obstacle);
+    }
+    timer++;
+
+    obstacles.forEach( el =>{
+        el.draw();
+        el.x -= 3;
+    });
+    
+
+    player.draw();
     
 }
 frame();
