@@ -11,6 +11,7 @@ const bgm = new Audio('../resources/music/bgm.mp3');
 window.onload = () => {
     bgm.muted = true;
     bgm.play();
+    bgm.loop = true;
     bgm.muted = false;
 }
 
