@@ -32,3 +32,14 @@ class Obstacle {
 var obstacle = new Obstacle;
 obstacle.draw();
 
+// 프레임마다 실행할 함수
+function frame() {
+    requestAnimationFrame(frame);
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    player.draw();
+    player.x++;
+    
+}
+frame();
