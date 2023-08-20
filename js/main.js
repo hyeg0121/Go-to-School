@@ -38,8 +38,8 @@ function frame() {
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    player.draw();
-    player.x++;
+    obstacle.draw();
+    obstacle.x -= 3;
     
 }
 frame();
