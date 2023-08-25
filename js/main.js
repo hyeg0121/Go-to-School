@@ -45,9 +45,11 @@ class Obstacle {
 // 점프
 let jumpTimer = 0;
 let isJumping = false;
+let jumpEffectSound = new Audio('../resources/music/jump_effect.mp3');
 document.addEventListener('keydown', e => {
     if (e.code === 'Space') {
         isJumping = true;
+        jumpEffectSound.play();
     }
 });
 
@@ -69,7 +71,7 @@ function frame() {
     timer++;
 
     obstacles.forEach((a, i, o) =>{
-        if (a.x < 0) {
+        if (a.x < -600) {
             o.splice(i,1);
         }
         a.x -= 4;
