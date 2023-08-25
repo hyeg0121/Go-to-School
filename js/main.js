@@ -53,16 +53,17 @@ document.addEventListener('keydown', e => {
 
 let obstacles = [];
 let timer = 0;
+let animation; 
 
 // 프레임마다 실행할 함수
 function frame() {
-    requestAnimationFrame(frame);
+    animation = requestAnimationFrame(frame);
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     // TODO: 장애물 나오는 속도 조금씩 다르게 하기
     if (timer % 100 === 0) {
-        var obstacle = new Obstacle;
+        var obstacle = new Obstacle();
         obstacles.push(obstacle);
     }
     timer++;
@@ -71,10 +72,16 @@ function frame() {
         if (a.x < 0) {
             o.splice(i,1);
         }
-        a.draw();
         a.x -= 4;
+        
+        if (checkCollision(player, a)) {
+            o.splice(i, 1);
+            console.log('충돌~')
+        } else {
+            a.draw();
+        }
     });
-    
+
     // 점프
     if (isJumping) { 
         player.y -= 5;
@@ -93,3 +100,18 @@ function frame() {
 }
 frame();
 
+// collision
+function checkCollision(player, obstacle) {
+    if (!player || !obstacle) {
+        return false; // Exit the function if either player or obstacle is undefined
+    }
+
+    var xDiff = obstacle.x - (player.x + player.width);
+    var yDiff = obstacle.y - (player.y + player.height);
+
+    if (xDiff < 0 && yDiff < 0) {
+        return true; // Collision occurred
+    }
+
+    return false; // No collision
+}
