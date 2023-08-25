@@ -1,7 +1,8 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
-const DEFAULT_Y = 400;
+const DEFAULT_Y = 700;
+const DEFAULT_X = 300;
 
 canvas.setAttribute('width', window.innerWidth);
 canvas.setAttribute('height', window.innerHeight);
@@ -17,7 +18,7 @@ window.onload = () => {
 
 
 let player = {
-    x: 100,
+    x: DEFAULT_X,
     y: DEFAULT_Y,
     width: 50, 
     height: 50,
@@ -29,7 +30,7 @@ let player = {
 
 class Obstacle {
     constructor() {
-        this.x = 500;
+        this.x = 2000;
         this.y = DEFAULT_Y;
         this.width = 50;
         this.height = 50;
@@ -75,14 +76,14 @@ function frame() {
     });
     
     // 점프
-    if (isJumping) {
+    if (isJumping) { 
         player.y -= 5;
         jumpTimer++;
     }
     if (!isJumping) {
-        if(player.y < DEFAULT_Y) player.y += 6;
+        if(player.y < DEFAULT_Y) player.y += 4 ;
     }
-    if (jumpTimer > 30) {
+    if (jumpTimer > 25 ) {
         isJumping = false;
         jumpTimer = 0;
     }
