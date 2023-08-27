@@ -46,6 +46,8 @@ class Obstacle {
 // 점프
 let jumpTimer = 0;
 let isJumping = false;
+let jumpSpeed = 6;
+let jumpSecond = 30;
 let jumpEffectSound = new Audio('../resources/music/jump_effect.mp3');
 document.addEventListener('keydown', e => {
     if (e.code === 'Space') {
@@ -119,13 +121,13 @@ function frame() {
 
     // 점프
     if (isJumping) { 
-        player.y -= 9;
+        player.y -= jumpSpeed;
         jumpTimer++;
     }
     if (!isJumping) {
-        if(player.y < DEFAULT_Y) player.y += 6 ;
+        if(player.y < DEFAULT_Y) player.y += jumpSpeed ;
     }
-    if (jumpTimer > 25 ) {
+    if (jumpTimer > jumpSecond ) {
         isJumping = false;
         jumpTimer = 0;
     }
