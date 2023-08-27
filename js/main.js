@@ -101,6 +101,7 @@ function frame() {
 
     // 점수 증가
     score += 1;
+    displayScore();
 
     // 게임 오버 
     if (life <= 0) {
