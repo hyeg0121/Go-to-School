@@ -29,12 +29,15 @@ let player = {
     }
 }
 
+// 적
+let obstacleSpeed = 4;
 class Obstacle {
     constructor() {
         this.x = 2000;
         this.y = DEFAULT_Y;
         this.width = 50;
         this.height = 50;
+        this.speed =obstacleSpeed;
     }
 
     draw() {
@@ -42,6 +45,7 @@ class Obstacle {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
+
 
 // 점프
 let jumpTimer = 0;
@@ -59,7 +63,7 @@ document.addEventListener('keydown', e => {
 // 목숨
 let lives = MAX_LIFE;
 function displayLives() {
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'black';
     ctx.font = '24px Arial';
     ctx.fillText('Lives: ' + lives, canvas.width - 120, 40); // Adjust the position as needed
 }
@@ -69,7 +73,7 @@ function displayLives() {
 let score = 0;
 
 function displayScore() {
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'black';
     ctx.font = '24px Arial';
     ctx.fillText('Score: ' + score, 20, 40); // Adjust the position as needed
 }
@@ -95,7 +99,7 @@ function frame() {
         if (a.x < -600) {
             o.splice(i,1);
         }
-        a.x -= 4;
+        a.x -= a.speed;
 
         
         if (checkCollision(player, a)) {
@@ -131,6 +135,12 @@ function frame() {
         isJumping = false;
         jumpTimer = 0;
     }
+
+    // 장애물 속도 증가
+    if (score % 1000 === 0) {
+        obstacleSpeed++;
+    }
+    
 
     player.draw();
     
