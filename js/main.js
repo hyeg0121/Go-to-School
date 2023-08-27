@@ -31,6 +31,7 @@ let player = {
 
 // 적
 let obstacleSpeed = 4;
+let obstacleSpawnInterval = 100; 
 class Obstacle {
     constructor() {
         this.x = 2000;
@@ -88,8 +89,8 @@ function frame() {
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // TODO: 장애물 나오는 속도 조금씩 다르게 하기
-    if (timer % 100 === 0) {
+    // 장애물 나오는 속도 조금씩 다르게 하기
+    if (timer % obstacleSpawnInterval === 0) {
         var obstacle = new Obstacle();
         obstacles.push(obstacle);
     }
@@ -101,7 +102,6 @@ function frame() {
         }
         a.x -= a.speed;
 
-        
         if (checkCollision(player, a)) {
             o.splice(i, 1);
             lives--;
@@ -136,9 +136,14 @@ function frame() {
         jumpTimer = 0;
     }
 
-    // 장애물 속도 증가
+    // 장애물 속도 증가, 나오는 타이밍
     if (score % 1000 === 0) {
         obstacleSpeed++;
+        if(obstacleSpawnInterval > 30) {
+            obstacleSpawnInterval -= 10;
+            jumpSecond -= 2;
+            jumpSpeed++;
+        }
     }
     
 
