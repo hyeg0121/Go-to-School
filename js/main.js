@@ -3,6 +3,7 @@ let ctx = canvas.getContext('2d');
 
 const DEFAULT_Y = 700;
 const DEFAULT_X = 300;
+const MAX_LIFE = 3;
 
 canvas.setAttribute('width', window.innerWidth);
 canvas.setAttribute('height', window.innerHeight);
@@ -53,6 +54,18 @@ document.addEventListener('keydown', e => {
     }
 });
 
+// 목숨
+let life = MAX_LIFE;
+
+// 점수
+let score = 0;
+
+function displayScore() {
+    ctx.fillStyle = 'white';
+    ctx.font = '24px Arial';
+    ctx.fillText('Score: ' + score, 20, 40); // Adjust the position as needed
+}
+
 let obstacles = [];
 let timer = 0;
 let animation; 
@@ -75,22 +88,32 @@ function frame() {
             o.splice(i,1);
         }
         a.x -= 4;
+
         
         if (checkCollision(player, a)) {
             o.splice(i, 1);
-            console.log('충돌~')
-        } else {
+            life--;
+        }else{
             a.draw();
         }
+        
     });
+
+    // 점수 증가
+    score += 1;
+
+    // 게임 오버 
+    if (life <= 0) {
+        window.open('../end.html', '_top');
+    }
 
     // 점프
     if (isJumping) { 
-        player.y -= 5;
+        player.y -= 9;
         jumpTimer++;
     }
     if (!isJumping) {
-        if(player.y < DEFAULT_Y) player.y += 4 ;
+        if(player.y < DEFAULT_Y) player.y += 6 ;
     }
     if (jumpTimer > 25 ) {
         isJumping = false;
@@ -104,16 +127,20 @@ frame();
 
 // collision
 function checkCollision(player, obstacle) {
-    if (!player || !obstacle) {
-        return false; // Exit the function if either player or obstacle is undefined
-    }
+    // Define a tolerance margin to make the collision check less strict
+    const tolerance = 5;
 
-    var xDiff = obstacle.x - (player.x + player.width);
-    var yDiff = obstacle.y - (player.y + player.height);
-
-    if (xDiff < 0 && yDiff < 0) {
-        return true; // Collision occurred
+    if (
+        player.x + player.width + tolerance > obstacle.x &&
+        player.x < obstacle.x + obstacle.width + tolerance &&
+        player.y + player.height + tolerance > obstacle.y &&
+        player.y < obstacle.y + obstacle.height + tolerance
+    ) {
+        return true; // Collision detected
     }
 
     return false; // No collision
 }
+
+
+
