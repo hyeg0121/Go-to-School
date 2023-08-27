@@ -55,7 +55,13 @@ document.addEventListener('keydown', e => {
 });
 
 // 목숨
-let life = MAX_LIFE;
+let lives = MAX_LIFE;
+function displayLives() {
+    ctx.fillStyle = 'white';
+    ctx.font = '24px Arial';
+    ctx.fillText('Lives: ' + lives, canvas.width - 120, 40); // Adjust the position as needed
+}
+
 
 // 점수
 let score = 0;
@@ -92,7 +98,7 @@ function frame() {
         
         if (checkCollision(player, a)) {
             o.splice(i, 1);
-            life--;
+            lives--;
         }else{
             a.draw();
         }
@@ -103,8 +109,11 @@ function frame() {
     score += 1;
     displayScore();
 
+    // 목숨 보여주기
+    displayLives();
+
     // 게임 오버 
-    if (life <= 0) {
+    if (lives <= 0) {
         window.open('../end.html', '_top');
     }
 
