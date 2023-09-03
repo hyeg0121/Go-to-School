@@ -120,7 +120,7 @@ function frame() {
 
     // 게임 오버 
     if (lives <= 0) {
-        window.open('../end.html', '_top');
+        window.open(`../end.html?score=${score}`, '_top');
     }
 
     // 점프
