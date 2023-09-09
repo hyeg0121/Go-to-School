@@ -72,11 +72,9 @@ function displayLives() {
 
 // 점수
 let score = 0;
-
+const scoreDiv = document.getElementsByClassName('score')[0];
 function displayScore() {
-    ctx.fillStyle = 'black';
-    ctx.font = '24px Arial';
-    ctx.fillText('Score: ' + score, 20, 40); // Adjust the position as needed
+    scoreDiv.innerHTML = 'score: ' + score;
 }
 
 let obstacles = [];
