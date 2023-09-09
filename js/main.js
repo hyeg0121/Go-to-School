@@ -1,7 +1,7 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
-const DEFAULT_Y = 700;
+const DEFAULT_Y = 1000;
 const DEFAULT_X = 300;
 const MAX_LIFE = 3;
 
@@ -17,21 +17,26 @@ window.onload = () => {
     bgm.muted = false;
 }
 
-
+let playerImg = new Image();
+playerImg.src = '../resource/image/player.png';
 let player = {
     x: DEFAULT_X,
     y: DEFAULT_Y,
     width: 50, 
     height: 50,
     draw(){
-        ctx.fillStyle = 'green';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(playerImg, this.x-60, this.y -130);
     }
-}
+} 
+
+
 
 // 적
 let obstacleSpeed = 4;
-let obstacleSpawnInterval = 100; 
+let obstacleSpawnInterval = 95; 
+
+let obstacleImg = new Image();
+obstacleImg.src = '../resource/image/obstacle.png'
 class Obstacle {
     constructor() {
         this.x = 2000;
@@ -42,8 +47,7 @@ class Obstacle {
     }
 
     draw() {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(obstacleImg, this.x-20, this.y-45);
     }
 }
 
@@ -63,20 +67,20 @@ document.addEventListener('keydown', e => {
 
 // 목숨
 let lives = MAX_LIFE;
-function displayLives() {
-    ctx.fillStyle = 'black';
-    ctx.font = '24px Arial';
-    ctx.fillText('Lives: ' + lives, canvas.width - 120, 40); // Adjust the position as needed
-}
+const livesDiv = document.getElementsByClassName('lives')[0];
+function removeLives() {
+    let firstChild = livesDiv.firstElementChild;
+        if (firstChild) {
+            livesDiv.removeChild(firstChild);
+    }
+}   
 
 
 // 점수
 let score = 0;
-
+const scoreDiv = document.getElementsByClassName('score')[0];
 function displayScore() {
-    ctx.fillStyle = 'black';
-    ctx.font = '24px Arial';
-    ctx.fillText('Score: ' + score, 20, 40); // Adjust the position as needed
+    scoreDiv.innerHTML = 'score: ' + score;
 }
 
 let obstacles = [];
@@ -105,6 +109,8 @@ function frame() {
         if (checkCollision(player, a)) {
             o.splice(i, 1);
             lives--;
+            removeLives();
+        
         }else{
             a.draw();
         }
@@ -114,9 +120,6 @@ function frame() {
     // 점수 증가
     score += 1;
     displayScore();
-
-    // 목숨 보여주기
-    displayLives();
 
     // 게임 오버 
     if (lives <= 0) {
