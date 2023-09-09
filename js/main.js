@@ -63,11 +63,13 @@ document.addEventListener('keydown', e => {
 
 // 목숨
 let lives = MAX_LIFE;
-function displayLives() {
-    ctx.fillStyle = 'black';
-    ctx.font = '24px Arial';
-    ctx.fillText('Lives: ' + lives, canvas.width - 120, 40); // Adjust the position as needed
-}
+const livesDiv = document.getElementsByClassName('lives')[0];
+function removeLives() {
+    let firstChild = livesDiv.firstElementChild;
+        if (firstChild) {
+            livesDiv.removeChild(firstChild);
+    }
+}   
 
 
 // 점수
@@ -103,6 +105,8 @@ function frame() {
         if (checkCollision(player, a)) {
             o.splice(i, 1);
             lives--;
+            removeLives();
+        
         }else{
             a.draw();
         }
@@ -112,9 +116,6 @@ function frame() {
     // 점수 증가
     score += 1;
     displayScore();
-
-    // 목숨 보여주기
-    displayLives();
 
     // 게임 오버 
     if (lives <= 0) {
