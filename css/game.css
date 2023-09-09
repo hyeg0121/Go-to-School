@@ -41,7 +41,7 @@ body {
     margin-right: 10%;
     width: 10%;
     display: flex;
-    justify-content: space-evenly;
+    column-gap: 40px;
 }
 
 #canvas {
