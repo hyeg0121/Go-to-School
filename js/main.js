@@ -1,7 +1,7 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
-const DEFAULT_Y = 700;
+const DEFAULT_Y = 1000;
 const DEFAULT_X = 300;
 const MAX_LIFE = 3;
 
@@ -17,7 +17,8 @@ window.onload = () => {
     bgm.muted = false;
 }
 
-
+let playerImg = new Image();
+playerImg.src = '../resource/image/player.png';
 let player = {
     x: DEFAULT_X,
     y: DEFAULT_Y,
@@ -26,8 +27,11 @@ let player = {
     draw(){
         ctx.fillStyle = 'green';
         ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(playerImg, this.x-60, this.y -130);
     }
 }
+
+
 
 // 적
 let obstacleSpeed = 4;
