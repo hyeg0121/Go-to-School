@@ -25,17 +25,18 @@ let player = {
     width: 50, 
     height: 50,
     draw(){
-        ctx.fillStyle = 'green';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(playerImg, this.x-60, this.y -130);
     }
-}
+} 
 
 
 
 // 적
 let obstacleSpeed = 4;
-let obstacleSpawnInterval = 100; 
+let obstacleSpawnInterval = 95; 
+
+let obstacleImg = new Image();
+obstacleImg.src = '../resource/image/obstacle.png'
 class Obstacle {
     constructor() {
         this.x = 2000;
@@ -46,8 +47,7 @@ class Obstacle {
     }
 
     draw() {
-        ctx.fillStyle = 'red';
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(obstacleImg, this.x-20, this.y-45);
     }
 }
 
