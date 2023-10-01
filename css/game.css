@@ -55,3 +55,12 @@ body {
     background-color: #5FD8FF;
 }
 
+.ground {
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 24vh;
+    background-color: #402E27;
+}
+
