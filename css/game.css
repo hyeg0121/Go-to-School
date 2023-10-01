@@ -44,9 +44,14 @@ body {
     column-gap: 40px;
 }
 
+.lives img {
+    width: 60px;
+}
+
 #canvas {
     z-index: 1;
     width: 100vw;
     height: 90vh;
     background-color: #5FD8FF;
 }
+
