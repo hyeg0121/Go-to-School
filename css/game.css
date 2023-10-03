@@ -69,3 +69,14 @@ body {
     background-color: #402E27;
 }
 
+#webcam-container {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    width: 20vw;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+
+
