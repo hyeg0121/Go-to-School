@@ -148,8 +148,8 @@ function frame() {
     }
 
     // 장애물 속도 증가, 나오는 타이밍
-    if (score % 1000 === 0) {
-        obstacleSpeed++;
+    if (score % 700 === 0) {
+        obstacleSpeed -= 0.4;
         if(obstacleSpawnInterval > 30) {
             jumpSecond -= 2;
             jumpSpeed++;
