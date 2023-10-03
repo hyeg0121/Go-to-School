@@ -1,7 +1,7 @@
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
 
-const DEFAULT_Y = 1000;
+const DEFAULT_Y = 700;
 const DEFAULT_X = 300;
 const MAX_LIFE = 3;
 
@@ -58,6 +58,9 @@ let isJumping = false;
 let jumpSpeed = 6;
 let jumpSecond = 30;
 let jumpEffectSound = new Audio('../resources/music/jump_effect.mp3');
+jumpEffectSound.canPlayType = () => {
+    jumpEffectSound.play();
+};
 document.addEventListener('keydown', e => {
     if (e.code === 'Space') {
         isJumping = true;
@@ -87,6 +90,13 @@ let obstacles = [];
 let timer = 0;
 let animation; 
 
+// 랜덤 스폰 타이밍
+let maxInterval = 100; 
+let minInterval = 50; 
+function getRandomSpawnInterval() {
+    return Math.random() * (maxInterval - minInterval) + minInterval;
+}
+
 // 프레임마다 실행할 함수
 function frame() {
     animation = requestAnimationFrame(frame);
@@ -97,6 +107,7 @@ function frame() {
     if (timer % obstacleSpawnInterval === 0) {
         var obstacle = new Obstacle();
         obstacles.push(obstacle);
+        obstacleSpawnInterval = getRandomSpawnInterval();
     }
     timer++;
 
@@ -143,7 +154,7 @@ function frame() {
     if (score % 1000 === 0) {
         obstacleSpeed++;
         if(obstacleSpawnInterval > 30) {
-            obstacleSpawnInterval -= 10;
+            obstacleSpawnInterval -= 5;
             jumpSecond -= 2;
             jumpSpeed++;
         }
