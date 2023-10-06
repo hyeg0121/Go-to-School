@@ -43,7 +43,7 @@
         canvas.setAttribute('height', window.innerHeight);
 
         // 음악 재생
-        const bgm = new Audio('./resources/music/bgm.mp3');
+        const bgm = new Audio('./resource/music/bgm.mp3');
         window.onload = () => {
             bgm.muted = true;
             bgm.play();
@@ -62,8 +62,6 @@
                 ctx.drawImage(playerImg, this.x-60, this.y -130);
             }
         } 
-
-
 
         // 적
         let obstacleSpeed = 4;
@@ -91,7 +89,7 @@
         let isJumping = false;
         let jumpSpeed = 10;
         let jumpSecond = 30;
-        let jumpEffectSound = new Audio('./resources/music/jump_effect.mp3');
+        let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
                 isJumping = true;
@@ -169,13 +167,9 @@
             }
 
             // 점프
-            if (isJumping) { 
-                if (player.y < DEFAULT_Y - 200) {
-                    isJumping = false
-                } else {
-                    player.y -= jumpSpeed;
-                    jumpTimer++;    
-                }
+            if (isJumping) {
+                player.y -= jumpSpeed;
+                jumpTimer++;    
             }
             if (!isJumping) {
                 if(player.y < DEFAULT_Y) player.y += jumpSpeed ;
