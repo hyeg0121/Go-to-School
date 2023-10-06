@@ -65,12 +65,12 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 200px;
+    height: 100px;
     background-color: #402E27;
 }
 
 #webcam-container {
-    opacity: 0;
+    opacity: 1;
     position: fixed;
     top: 40px;
     left: 50%;
