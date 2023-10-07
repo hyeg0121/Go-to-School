@@ -33,11 +33,11 @@ body {
 .game-info {
     margin: 0 10vw;
     width: calc(100% - 20vw);
-    height: 10vh;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 50px;
 }
 
 .score {
@@ -62,12 +62,12 @@ body {
     left: 0;
     z-index: 1;
     width: 100%;
-    height: 800px;
+    height: 80vh;
     background-color: #5FD8FF;
 }
 
 .ground {
-    z-index: 0;
+    z-index: -1;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -79,9 +79,8 @@ body {
     opacity: 1;
     position: fixed;
     top: 40px;
-    left: 50%;
+    left: 40px;
     width: 20vw;
-    transform: translateX(-50%);
     z-index: 3;
 }
 
