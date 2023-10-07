@@ -267,8 +267,8 @@
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-
-            if ((prediction[0].probability*100).toFixed(0) > 96) {
+            if ((prediction[0].probability*100).toFixed(0) > 95) {
+                console.log((prediction[0].probability*100).toFixed(0));
                 isJumping = true;
             } 
 
