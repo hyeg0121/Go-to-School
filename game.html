@@ -21,6 +21,7 @@
             <div class="life">
                 <img src="./resource/image/heart.png" alt=""></div>
             </div>
+        </div>
     </div>
     <canvas id="canvas"></canvas>
     <div class="ground"></div>
@@ -35,7 +36,7 @@
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
 
-        const DEFAULT_Y = 1000;
+        const DEFAULT_Y = 800;
         const DEFAULT_X = 300;
         const MAX_LIFE = 3;
 
@@ -94,6 +95,7 @@
             if (e.code === 'Space') {
                 isJumping = true;
                 jumpEffectSound.play();
+                console.log(player.y);
             }
         });
 
@@ -168,6 +170,9 @@
 
             // 점프
             if (isJumping) {
+                if (player.y < 300) {
+                    isJumping = false;
+                }
                 player.y -= jumpSpeed;
                 jumpTimer++;    
             }
@@ -263,7 +268,7 @@
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
 
-            if ((prediction[0].probability*100).toFixed(0) > 99) {
+            if ((prediction[0].probability*100).toFixed(0) > 96) {
                 isJumping = true;
             } 
 
