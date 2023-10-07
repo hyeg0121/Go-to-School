@@ -11,6 +11,12 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -25,7 +31,8 @@ body {
 }
 
 .game-info {
-    width: 100%;
+    margin: 0 10vw;
+    width: calc(100% - 20vw);
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -34,7 +41,6 @@ body {
 }
 
 .score {
-    margin-left: 10%;
     font-family: 'DungGeunMo';
     color: #FFF;
     text-shadow: 0px 3px 0px #0D3E48;
@@ -43,8 +49,6 @@ body {
 }
 
 .lives {
-    margin-right: 10%;
-    width: 10%;
     display: flex;
     column-gap: 40px;
 }
@@ -54,14 +58,16 @@ body {
 }
 
 #canvas {
+    top: 0;
+    left: 0;
     z-index: 1;
-    width: 100vw;
-    height: 90vh;
+    width: 100%;
+    height: 800px;
     background-color: #5FD8FF;
 }
 
 .ground {
-    z-index: 2;
+    z-index: 0;
     position: fixed;
     bottom: 0;
     width: 100%;
