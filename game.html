@@ -36,7 +36,7 @@
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
 
-        const DEFAULT_Y = 800;
+        const DEFAULT_Y = 500;
         const DEFAULT_X = 300;
         const MAX_LIFE = 3;
 
@@ -170,7 +170,7 @@
 
             // 점프
             if (isJumping) {
-                if (player.y < 300) {
+                if (player.y < 100) {
                     isJumping = false;
                 }
                 player.y -= jumpSpeed;
