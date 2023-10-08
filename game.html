@@ -93,9 +93,11 @@
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
-                isJumping = true;
-                jumpEffectSound.play();
-                console.log(player.y);
+                if (player.y > 700) {
+                    isJumping = true;
+                    jumpEffectSound.play();
+                    console.log(player.y);
+                }
             }
         });
 
@@ -168,6 +170,7 @@
                 window.open(`./end.html?score=${score}`, '_top');
             }
 
+            console.log(player.y)
             // 점프
             if (isJumping) {
                 if (player.y < 400) {
