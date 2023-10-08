@@ -270,7 +270,7 @@
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-            if ((prediction[0].probability*100).toFixed(0) > 90) {
+            if ((prediction[0].probability*100).toFixed(0) > 88) {
                 console.log((prediction[0].probability*100).toFixed(0));
                 console.log('web:' +player.y);
                 if (player.y > 750) { 
