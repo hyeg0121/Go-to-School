@@ -164,12 +164,14 @@
             });
 
             // 점수 증가
-            score += 1;
+
             displayScore();
 
             // 게임 오버 
             if (lives <= 0) {
                 window.open(`./end.html?score=${score}`, '_top');
+            } else {
+                score += 1;
             }
 
             console.log(player.y)
@@ -187,11 +189,6 @@
             if (jumpTimer > jumpSecond ) {
                 isJumping = false;
                 jumpTimer = 0;
-            }
-
-            // 장애물 속도 증가, 나오는 타이밍
-            if (score % 800 === 0) {
-                obstacleSpeed += 0.4;
             }
         
             player.draw();
