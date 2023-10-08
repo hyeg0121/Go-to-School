@@ -65,7 +65,7 @@
         } 
 
         // 적
-        let obstacleSpeed = 4;
+        let obstacleSpeed = 4.5;
         let obstacleSpawnInterval = 95; 
 
         let obstacleImg = new Image();
@@ -205,7 +205,7 @@
         // collision
         function checkCollision(player, obstacle) {
             // Define a tolerance margin to make the collision check less strict
-            const tolerance = 5;
+            const tolerance = 10;
 
             if (
                 player.x + player.width + tolerance > obstacle.x &&
