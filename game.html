@@ -272,7 +272,8 @@
             labelContainer.childNodes[i].innerHTML = classPrediction;
             if ((prediction[0].probability*100).toFixed(0) > 95) {
                 console.log((prediction[0].probability*100).toFixed(0));
-                if (player.y < 750) { 
+                console.log('web:' +player.y);
+                if (player.y > 750) { 
                     isJumping = true;
                 }
             } 
