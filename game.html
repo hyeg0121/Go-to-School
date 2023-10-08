@@ -89,7 +89,7 @@
         let jumpTimer = 0;
         let isJumping = false;
         let jumpSpeed = 8;
-        let jumpSecond = 45;
+        let jumpSecond = 35;
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
@@ -121,11 +121,10 @@
 
         let obstacles = [];
         let timer = 0;
-        let otherTimer = 0;
         let animation; 
 
         let maxInterval = 180; 
-        let minInterval = 90; 
+        let minInterval = 100; 
         function getRandomSpawnInterval() {
             return parseInt(Math.random() * (maxInterval - minInterval) + minInterval);
         }
@@ -144,11 +143,6 @@
                 timer = 0;
             }
             timer++;
-
-            if (score > 1800) {
-                obstacleSpeed += 1;
-            }
-
 
             obstacles.forEach((a, i, o) =>{
                 if (a.x < -600) {
@@ -172,7 +166,7 @@
             displayScore();
 
             // 게임 오버 
-            if (lives < 0) {
+            if (lives <= 0) {
                 window.open(`./end.html?score=${score}`, '_top');
             }
 
@@ -281,7 +275,6 @@
                 console.log('web:' +player.y);
                 if (player.y > 750) { 
                     isJumping = true;
-                    jumpEffectSound.play();
                 }
             } 
 
