@@ -190,17 +190,19 @@
                 isJumping = false;
                 jumpTimer = 0;
             }
+
+            if (score > 4000) {
+                maxInterval = 120;
+                minInterval = 80;
+            } else if (score > 3000){
+                maxInterval = 150;
+                minInterval = 90;
+            } else if (score > 2000) {
+                maxInterval = 160;
+                minInterval = 90;
+            }
         
             player.draw();
-
-            if (score > 2000) {
-                obstacleSpeed += 2;
-            } else if (score > 3000) {
-                obstacleSpeed += 3;
-            } else if (score > 5000) {
-                obstacleSpeed += 3;
-            }
-            
         }
         frame();
 
