@@ -24,7 +24,7 @@
         </div>
     </div>
     <canvas id="canvas"></canvas>
-    <div class="ground"></div>
+    <!-- <div class="ground"></div> -->
     <script src="./js/main.js"></script>
 
     <!-- 티처블 머신 -->
@@ -106,8 +106,10 @@
         const livesDiv = document.getElementsByClassName('lives')[0];
         function removeLives() {
             let firstChild = livesDiv.firstElementChild;
-                if (firstChild) {
-                    livesDiv.removeChild(firstChild);
+            if (firstChild) {
+                livesDiv.removeChild(firstChild);
+            } else if (firstChild == null) {
+                window.open(`end.html?score=${score}`, '_top');
             }
         }   
 
@@ -188,11 +190,10 @@
             }
 
             // 장애물 속도 증가, 나오는 타이밍
-            if (score % 700 === 0) {
+            if (score % 800 === 0) {
                 obstacleSpeed += 0.4;
             }
-            
-
+        
             player.draw();
             
         }
