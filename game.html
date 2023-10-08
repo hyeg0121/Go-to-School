@@ -65,7 +65,7 @@
         } 
 
         // 적
-        let obstacleSpeed = 3;
+        let obstacleSpeed = 2;
         let obstacleSpawnInterval = 95; 
 
         let obstacleImg = new Image();
@@ -88,8 +88,8 @@
         // 점프
         let jumpTimer = 0;
         let isJumping = false;
-        let jumpSpeed = 10;
-        let jumpSecond = 30;
+        let jumpSpeed = 9;
+        let jumpSecond = 35;
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
