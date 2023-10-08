@@ -24,7 +24,7 @@
         </div>
     </div>
     <canvas id="canvas"></canvas>
-    <div class="ground"></div>
+    <!-- <div class="ground"></div> -->
     <script src="./js/main.js"></script>
 
     <!-- 티처블 머신 -->
@@ -65,7 +65,7 @@
         } 
 
         // 적
-        let obstacleSpeed = 2;
+        let obstacleSpeed = 4;
         let obstacleSpawnInterval = 95; 
 
         let obstacleImg = new Image();
@@ -88,7 +88,7 @@
         // 점프
         let jumpTimer = 0;
         let isJumping = false;
-        let jumpSpeed = 8;
+        let jumpSpeed = 10;
         let jumpSecond = 40;
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
@@ -123,8 +123,8 @@
         let timer = 0;
         let animation; 
 
-        let maxInterval = 180; 
-        let minInterval = 100; 
+        let maxInterval = 200; 
+        let minInterval = 140; 
         function getRandomSpawnInterval() {
             return parseInt(Math.random() * (maxInterval - minInterval) + minInterval);
         }
