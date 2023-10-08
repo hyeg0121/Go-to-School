@@ -123,8 +123,8 @@
         let timer = 0;
         let animation; 
 
-        let maxInterval = 125; 
-        let minInterval = 75; 
+        let maxInterval = 140; 
+        let minInterval = 70; 
         function getRandomSpawnInterval() {
             return parseInt(Math.random() * (maxInterval - minInterval) + minInterval);
         }
@@ -270,7 +270,7 @@
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
-            if ((prediction[0].probability*100).toFixed(0) > 88) {
+            if ((prediction[0].probability*100).toFixed(0) > 80) {
                 console.log((prediction[0].probability*100).toFixed(0));
                 console.log('web:' +player.y);
                 if (player.y > 750) { 
