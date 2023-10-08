@@ -125,8 +125,8 @@
         let timer = 0;
         let animation; 
 
-        let maxInterval = 180; 
-        let minInterval = 100; 
+        let maxInterval = 170; 
+        let minInterval = 90; 
         function getRandomSpawnInterval() {
             return parseInt(Math.random() * (maxInterval - minInterval) + minInterval);
         }
@@ -195,6 +195,14 @@
             }
         
             player.draw();
+
+            if (score > 2000) {
+                obstacleSpeed += 2;
+            } else if (score > 3000) {
+                obstacleSpeed += 3;
+            } else if (score > 5000) {
+                obstacleSpeed += 3;
+            }
             
         }
         frame();
