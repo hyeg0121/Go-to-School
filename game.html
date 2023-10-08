@@ -89,7 +89,7 @@
         let jumpTimer = 0;
         let isJumping = false;
         let jumpSpeed = 8;
-        let jumpSecond = 35;
+        let jumpSecond = 45;
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
@@ -168,7 +168,7 @@
             displayScore();
 
             // 게임 오버 
-            if (lives <= 0) {
+            if (lives < 0) {
                 window.open(`./end.html?score=${score}`, '_top');
             }
 
