@@ -144,7 +144,11 @@
                 timer = 0;
             }
             timer++;
-            otherTimer++;
+
+            if (score > 1800) {
+                obstacleSpeed += 1;
+            }
+
 
             obstacles.forEach((a, i, o) =>{
                 if (a.x < -600) {
