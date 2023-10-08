@@ -89,7 +89,7 @@
         let jumpTimer = 0;
         let isJumping = false;
         let jumpSpeed = 8;
-        let jumpSecond = 45;
+        let jumpSecond = 40;
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
@@ -123,8 +123,8 @@
         let timer = 0;
         let animation; 
 
-        let maxInterval = 140; 
-        let minInterval = 70; 
+        let maxInterval = 180; 
+        let minInterval = 100; 
         function getRandomSpawnInterval() {
             return parseInt(Math.random() * (maxInterval - minInterval) + minInterval);
         }
