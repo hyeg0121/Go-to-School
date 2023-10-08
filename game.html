@@ -24,7 +24,7 @@
         </div>
     </div>
     <canvas id="canvas"></canvas>
-    <!-- <div class="ground"></div> -->
+    <div class="ground"></div>
     <script src="./js/main.js"></script>
 
     <!-- 티처블 머신 -->
@@ -88,8 +88,8 @@
         // 점프
         let jumpTimer = 0;
         let isJumping = false;
-        let jumpSpeed = 10;
-        let jumpSecond = 40;
+        let jumpSpeed = 9;
+        let jumpSecond = 35;
         let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
