@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +9,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="./resource/image/favicon.ico">
 </head>
+
 <body>
-    <!-- TODO: 메인 화면 bgm 넣기 -->
     <main class="container">
         <div class="img-wrap">
             <img src="./resource/image/applogo.png" alt="">
@@ -22,4 +23,14 @@
         </button>
     </main>
 </body>
+<script>
+    const bgm = new Audio('./resource/music/opening_bg.mp3');
+    window.onload = () => {
+        bgm.muted = true;
+        bgm.play();
+        bgm.loop = true;
+        bgm.muted = false;
+    }
+</script>
+
 </html>

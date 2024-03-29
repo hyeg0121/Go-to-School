@@ -20,6 +20,7 @@ html {
 }
 
 body {
+    background: url('../resource/image/bg.png');
     width: 100%;
     height: 100%;
     display: flex;
@@ -31,13 +32,15 @@ body {
 }
 
 .game-info {
-    margin: 0 10vw;
-    width: calc(100% - 20vw);
+    margin: 0 0;
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    width: calc(100% - 80px);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .score {
@@ -60,10 +63,9 @@ body {
 #canvas {
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 0;
     width: 100%;
     height: 70vh;
-    background-color: #5FD8FF;
 }
 
 .ground {
@@ -71,7 +73,7 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 15vh;
+    height: 200px;
     background-color: #402E27;
 }
 
@@ -79,10 +81,14 @@ body {
     opacity: 1;
     position: fixed;
     top: 40px;
-    left: 40px;
+    right: 40px;
     width: 20vw;
     z-index: 3;
+    border-radius: 50%;
 }
 
+.webcam-canvas {
+    border-radius: 50%;
+}
 
 
