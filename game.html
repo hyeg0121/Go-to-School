@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>등교를 부탁해!</title>
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="./css/game.css">
-    <link rel="icon" href="./resource/image/favicon.ico">
+    <link rel="icon" href="favicon.ico">
 </head>
 
 <body>
@@ -15,19 +16,18 @@
         <div class="score">SCORE: 00000</div>
         <div class="lives">
             <div class="life">
-                <img src="./resource/image/heart.png" alt="">
+                <img src="./resources/image/heart.png" alt="">
             </div>
             <div class="life">
-                <img src="./resource/image/heart.png" alt="">
+                <img src="./resources/image/heart.png" alt="">
             </div>
             <div class="life">
-                <img src="./resource/image/heart.png" alt="">
+                <img src="./resources/image/heart.png" alt="">
             </div>
         </div>
     </div>
     </div>
     <canvas id="canvas"></canvas>
-    <div class="ground"></div>
     <script src="./js/main.js"></script>
 
     <!-- 티처블 머신 -->
@@ -49,7 +49,7 @@
         canvas.setAttribute('height', window.innerHeight);
 
         // 음악 재생
-        const bgm = new Audio('./resource/music/opening_bg.mp3');
+        const bgm = new Audio('./resources/music/opening_bg.mp3');
         window.onload = () => {
             bgm.muted = true;
             bgm.play();
@@ -58,7 +58,7 @@
         }
 
         let playerImg = new Image();
-        playerImg.src = './resource/image/mirimi.png';
+        playerImg.src = './resources/image/player.png';
         let player = {
             x: DEFAULT_X,
             y: DEFAULT_Y,
@@ -74,7 +74,7 @@
         let obstacleSpawnInterval = 95;
 
         let obstacleImg = new Image();
-        obstacleImg.src = './resource/image/obstacle.png'
+        obstacleImg.src = './resources/image/obstacle.png'
         class Obstacle {
             constructor() {
                 this.x = 2000;
@@ -94,7 +94,7 @@
         let isJumping = false;
         let jumpSpeed = 9;
         let jumpSecond = 30;
-        let jumpEffectSound = new Audio('./resource/music/jump_effect.mp3');
+        let jumpEffectSound = new Audio('./resources/music/jump_effect.mp3');
         document.addEventListener('keydown', e => {
             if (e.code === 'Space') {
                 if (player.y > 700) {

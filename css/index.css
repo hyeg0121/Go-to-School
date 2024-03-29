@@ -1,28 +1,27 @@
 @font-face {
-    font-family: 'DungGeunMo';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-html,
-body,
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
 main {
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    background-image: url(../resource/image/bg.png);
-    background-size: cover;
-}
-
-.container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -30,35 +29,55 @@ body {
     align-items: center;
 }
 
-.img-wrap {
+.main-title, .sub-title {
+    position: relative;
+    display: inline-block;
+}
+
+.sub-title {
     margin-top: 10vh;
-    width: 60%;
-    height: 30%;
 }
 
-.img-wrap > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.main-title::before, .sub-title::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: white; 
+    -webkit-text-stroke: 10px black; 
+    -webkit-text-fill-color: transparent; 
+    text-shadow: black;
 }
 
-button {
-    width: 25%;
-    height: 10%;
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin-top: 3vh;
-    transition: 0.2s;
+/* Gradient Text */
+.main-title {
+    font-size: 12rem;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    background: linear-gradient(to bottom, #FFFFFF, #FFFF56); /* 그라데이션 설정 */
+    -webkit-background-clip: text; /* 텍스트를 마스킹하여 배경 그라데이션을 적용 */
+    background-clip: text;
+    color: transparent; /* 텍스트 내용을 투명하게 설정하여 배경 그라데이션 표시 */
+}
+.sub-title {
+    font-size: 6rem;
+    background: linear-gradient(to bottom, #37FFEB, #9BADFF); /* 그라데이션 설정 */
+    -webkit-background-clip: text; /* 텍스트를 마스킹하여 배경 그라데이션을 적용 */
+    background-clip: text;
+    color: transparent; /* 텍스트 내용을 투명하게 설정하여 배경 그라데이션 표시 */
 }
 
-button > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+
+p {
+    font-family: 'GongGothicMedium';
+    margin-top: 10vh;
+    text-align: center;
+    font-size: 2.4rem;
+    color: #FFFFFF;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 1);  
 }
 
-button:hover {
-    transform: translateY(-20px);
+#start-button {
+    margin-top: 10vh;
+    animation: moveUpDown 2s infinite alternate;
 }

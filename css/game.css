@@ -2,12 +2,7 @@
     from { transform: translateX(25%); }
     to { transform: translateX(-25%); }
 }
-@font-face {
-    font-family: 'DungGeunMo';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,10 +15,9 @@ html {
 }
 
 body {
-    background: url('../resource/image/bg.png');
     width: 100%;
     height: 100%;
-    display: flex;
+    display: flex;  
     flex-direction: column;
     justify-content: center;
     align-items: center;
