@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>등교를 부탁해</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enter-name.css">
+</head>
+
+<body>
+    <main>
+        <h1>이름을 입력하세요</h1>
+        <input type="text" name="name" placeholder="홍길동" id="name-input">
+        <button id="start-button">> 시작하기</button>
+    </main>
+
+    <script>
+        const startButton = document.getElementById('start-button');
+        const nameInput = document.getElementById('name-input');
+
+        const gameStart = () => {
+            const name = nameInput.value;
+            if (name.trim() !== "") {
+                window.open(`/game.html?name=${name}`);
+            } else {
+                alert('이름을 입력하세요!')
+            }
+        }
+
+        startButton.onclick = gameStart;
+        nameInput.onkeydown = e => {
+            if (e.keyCode === 13) gameStart();
+        }
+
+    </script>
+</body>
+
+</html>
