@@ -23,7 +23,7 @@
         const gameStart = () => {
             const name = nameInput.value;
             if (name.trim() !== "") {
-                window.open(`/game.html?name=${name}`);
+                window.open(`/game.html?name=${name}`, '_top');
             } else {
                 alert('이름을 입력하세요!')
             }
