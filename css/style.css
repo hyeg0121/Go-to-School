@@ -7,7 +7,21 @@
 
 @font-face{
     font-family:'DNFBitBitv2';
-    font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
+    font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+:root {
+    --stroke-color: #0D3E48;
+}
 
 * {
     font-family: 'DungGeunMo';
@@ -34,6 +48,8 @@ button {
     background: none;
     color: white; 
     font-family: 'DNFBitBitv2';
-    -webkit-text-stroke: 4px rgba(0, 0, 0, 1); 
+    -webkit-text-stroke: var(--stroke-color) 4px;
+    text-shadow: 0px 10px 0px var(--stroke-color);
     cursor: pointer;
+    animation: moveUpDown 2s infinite alternate;
 }
