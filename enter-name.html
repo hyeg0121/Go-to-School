@@ -34,6 +34,15 @@
             if (e.keyCode === 13) gameStart();
         }
 
+        // 배경 음악 재생
+        const bgm = new Audio('./resources/music/opening_bg.mp3');
+        window.onload = () => {
+            bgm.muted = true;
+            bgm.play();
+            bgm.loop = true;
+            bgm.muted = false;
+        }
+
     </script>
 </body>
 
