@@ -41,8 +41,8 @@
         let ctx = canvas.getContext('2d');
 
         // 디폴트 값
-        const DEFAULT_Y = 800;
-        const DEFAULT_X = 300;
+        const DEFAULT_Y = 900;
+        const DEFAULT_X = 500;
         const MAX_LIFE = 3;
 
         canvas.setAttribute('width', window.innerWidth);
@@ -74,13 +74,13 @@
         let obstacleSpawnInterval = 95;
 
         let obstacleImg = new Image();
-        obstacleImg.src = './resources/image/obstacle.png'
+        obstacleImg.src = './resources/image/bug.png'
         class Obstacle {
             constructor() {
-                this.x = 2000;
-                this.y = DEFAULT_Y;
-                this.width = 30;
-                this.height = 30;
+                this.x = 1440;
+                this.y = DEFAULT_Y - 30;
+                this.width = 40;
+                this.height = 40;
                 this.speed = obstacleSpeed;
             }
 
@@ -127,8 +127,8 @@
         let timer = 0;
         let animation;
 
-        let maxInterval = 170;
-        let minInterval = 90;
+        let maxInterval = 150;
+        let minInterval = 70;
 
         // 랜덤으로 장애물 스폰
         function getRandomSpawnInterval() {
@@ -194,32 +194,33 @@
             }
 
             // 난이도 변경
-            let flag4000 = false; // 4000점 플래그 변수
-            let flag3000 = false; // 3000점 플래그 변수
-            let flag2000 = false; // 2000점 플래그 변수
+            let flag3000 = false; // 4000점 플래그 변수
+            let flag2000 = false; // 3000점 플래그 변수
+            let flag1000 = false; // 2000점 플래그 변수
 
-            if (score > 4000 && !flag4000) { // 4000점 이상인 경우
-                maxInterval = 90;
-                minInterval = 60;
+            if (score > 4000 && !flag3000) { // 4000점 이상인 경우
+                maxInterval = 80;
+                minInterval = 40;
+                obstacleSpeed = 6.5;
+                jumpSpeed = 13;
 
-                obstacles = []; // 장애물 비우기
-                flag4000 = true; // 플래그 설정
-            } else if (score > 3000 && !flag3000 && flag4000) { // 3000점 이상인 경우
-                maxInterval = 120;
-                minInterval = 80;
-                obstacleSpeed = 8;
+
+                flag3000 = true; // 플래그 설정
+            } else if (score > 2000 && !flag2000) { // 3000점 이상인 경우
+                maxInterval = 100;
+                minInterval = 50;
+                obstacleSpeed = 5.5;
                 jumpSpeed = 12;
 
-                obstacles = []; // 장애물 비우기
-                flag3000 = true; // 플래그 설정
-            } else if (score > 2000 && !flag2000 && flag3000) { // 2000점 이상인 경우
-                maxInterval = 140;
-                minInterval = 80;
-                obstacleSpeed = 6;
-                jumpSpeed = 10;
-
-                obstacles = []; // 장애물 비우기
                 flag2000 = true; // 플래그 설정
+            } else if (score > 1000 && !flag1000) { // 2000점 이상인 경우
+                maxInterval = 140;
+                minInterval = 60;
+                obstacleSpeed = 4.5;
+                jumpSpeed = 11;
+
+                console.log(obstacleSpeed)
+                flag1000 = true; // 플래그 설정
             }
 
 
