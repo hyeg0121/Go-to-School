@@ -30,13 +30,15 @@
     <canvas id="canvas"></canvas>
     <script src="./js/main.js"></script>
 
-    <!-- 티처블 머신 -->
+
     <div id="webcam-container"></div>
     <div id="label-container"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <script type="text/javascript">
+    <!-- 게임 -->
+    <script>
+        // 이름 가져오기
+        let name = new URL(location.href).searchParams.get('name');
+
+
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
 
@@ -172,7 +174,7 @@
 
             // 게임 오버 
             if (lives <= 0) {
-                window.open(`./end.html?score=${score}`, '_top');
+                window.open(`./end.html?score=${score}&name=${name}`, '_top');
             } else {
                 score += 1;
             }
@@ -228,9 +230,8 @@
         }
         frame();
 
-        // collision
+        // 충돌 체크
         function checkCollision(player, obstacle) {
-            // Define a tolerance margin to make the collision check less strict
             const tolerance = 10;
 
             if (
@@ -239,13 +240,18 @@
                 player.y + player.height + tolerance > obstacle.y &&
                 player.y < obstacle.y + obstacle.height + tolerance
             ) {
-                return true; // Collision detected
+                return true; // 충돌
             }
 
-            return false; // No collision
+            return false; // 충돌이 아님
         }
 
-        // 티처블 머신
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <!-- 티처블 머신 -->
+    <script type="text/javascript">
         const URL = "./my_model/";
 
         let model, webcam, labelContainer, maxPredictions;
