@@ -17,7 +17,7 @@ const showRankingData = (rankingList) => {
     // 랭킹 데이터가 존재하지 않으면 표시할 내용 설정
     if (!rankingList || rankingList.length === 0) {
         const noDataMessage = document.createElement('tr');
-        noDataMessage.innerHTML = '<td colspan="3">No ranking data available</td>';
+        noDataMessage.innerHTML = '<td colspan="3">아직 플레이 한 사람이 없어요 ㅠ0ㅠ</td>';
         tbody.appendChild(noDataMessage);
     } else {
         // 점수가 높은 순으로 랭킹 리스트 정렬
