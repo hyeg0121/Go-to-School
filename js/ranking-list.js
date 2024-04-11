@@ -1,24 +1,69 @@
-// GET 요청을 보낼 함수 정의
-const fetchData = async () => {
-    try {
-        // GET 요청을 보내고 응답을 변수에 저장
-        const response = await fetch('http://localhost:8080/ranking');
+const showRankingData = (rankingList) => {
+    const rankingTable = document.createElement('table');
+    rankingTable.innerHTML = `
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    `;
 
-        // 응답이 성공적으로 받아졌는지 확인
+    const tbody = rankingTable.querySelector('tbody');
+
+    // 랭킹 데이터가 존재하지 않으면 표시할 내용 설정
+    if (!rankingList || rankingList.length === 0) {
+        const noDataMessage = document.createElement('tr');
+        noDataMessage.innerHTML = '<td colspan="3">No ranking data available</td>';
+        tbody.appendChild(noDataMessage);
+    } else {
+        // 점수가 높은 순으로 랭킹 리스트 정렬
+        rankingList.sort((a, b) => b.score - a.score);
+
+        // 랭킹 데이터를 표에 추가
+        rankingList.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${item.name}</td>
+                <td>${item.score}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // 기존에 있는 랭킹 리스트를 대체하기 위해 기존의 요소를 삭제하고 새로운 테이블을 추가
+    const rankingElement = document.getElementById('ranking-list');
+    rankingElement.innerHTML = '';
+    rankingElement.appendChild(rankingTable);
+};
+
+// fetchData 함수 호출 후에 showRankingData를 호출하여 데이터를 보여줄 수 있도록 함
+const fetchDataAndShowRanking = async () => {
+    try {
+        const response = await fetch('http://localhost:8080/ranking');
         if (!response.ok) {
             throw new Error('Failed to fetch data');
         }
-
-        // JSON 형식으로 변환하여 응답 데이터를 가져옴
         const data = await response.json();
-
-        // 랭킹 정보를 콘솔에 출력
         console.log('Rankings:', data);
+        showRankingData(data); // 랭킹 데이터를 표시
     } catch (error) {
-        // 에러 발생 시 에러 메시지 출력
         console.error('Error:', error);
     }
 };
 
-// fetchData 함수 호출
-fetchData();
+// fetchDataAndShowRanking 함수 호출
+fetchDataAndShowRanking();
+
+// 배경 음악 재생
+const bgm = new Audio('../resources/music/opening_bg.mp3');
+window.onload = () => {
+    bgm.muted = true;
+    bgm.play();
+    bgm.loop = true;
+    bgm.muted = false;
+}

@@ -25,7 +25,7 @@ h1 {
     border: none;
     background: none;
     color: white; 
-    font-family: 'DNFBitBitv2';
+    font-family:  'DNFBitBitv2', 'MabinogiClassicR';
     -webkit-text-stroke: var(--stroke-color) 1px;   
     cursor: pointer;
 }

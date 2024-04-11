@@ -38,12 +38,11 @@
         // 이름 가져오기
         let name = new URL(location.href).searchParams.get('name');
 
-
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
 
         // 디폴트 값
-        const DEFAULT_Y = 900;
+        const DEFAULT_Y = 970;
         const DEFAULT_X = 500;
         const MAX_LIFE = 3;
 
@@ -181,11 +180,12 @@
 
             // 점프
             if (isJumping) {
-                if (player.y < 400) {
+                if (player.y < 700) {
                     isJumping = false;
+                } else {
+                    player.y -= jumpSpeed;
+                    jumpTimer++;
                 }
-                player.y -= jumpSpeed;
-                jumpTimer++;
             }
             if (!isJumping) {
                 if (player.y < DEFAULT_Y) player.y += jumpSpeed;

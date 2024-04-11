@@ -13,18 +13,12 @@
 
 <body>
 
-    <main>
-        <h2 class="sub-title" data-text="버그를 피해서">버그를 피해서</h2>
-        <h1 class="main-title" data-text="등교를 부탁해">등교를 부탁해</h1>
-        <p>오늘도 고등학생 미림이는 등교를 해요 <br>
-            근데 이런! 하나님의 디버깅 실수로
-            세상이 버그 천지에요!! <br>
-            버그를 피해 점프하여 미림이를 등교시켜주세요</p>
-
-        <button id="start-button" data-text="game start">>> game start</button>
-    </main>
-
-
+    <button id="start-button" data-text="game start" onclick="window.open('/enter-name.html', '_top')">
+        >> 게임시작
+    </button>
+    <button class="replay-button" onclick="window.open('ranking.html', '_top')">
+        >> 랭킹보기
+    </button>
 
     <script>
         // 배경 음악 재생
@@ -34,12 +28,6 @@
             bgm.play();
             bgm.loop = true;
             bgm.muted = false;
-        }
-
-        // 버튼 이벤트 리스너
-        const startButton = document.getElementById("start-button");
-        startButton.onclick = e => {
-            window.open('/enter-name.html', '_top');
         }
     </script>
 </body>

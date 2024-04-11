@@ -9,11 +9,11 @@
 
 .title,
 .score {
-    font-family: 'DungGeunMo';
+    font-family: 'DNFBitBitv2', 'DungGeunMo';
     color: #FFF;
     text-align: center;
     text-shadow: 0px 10px 0px #0D3E48;
-    font-size: 200px;
+    font-size: 120px;
     font-style: normal;
     font-weight: 400;
     letter-spacing: -15px;

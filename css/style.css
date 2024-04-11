@@ -5,9 +5,23 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @font-face{
     font-family:'DNFBitBitv2';
     font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
+}
+
+@font-face {
+    font-family: 'MabinogiClassicR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/MabinogiClassicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @keyframes moveUpDown {
@@ -30,8 +44,9 @@
 }
 
 body {
-    background-image: url(../resources/image/background/background.gif);
+    background-image: url(../resources/image/background/bg.png);
     background-size: cover;
+    overflow: hidden;
 }
 
 html,
@@ -47,9 +62,9 @@ button {
     border: none;
     background: none;
     color: white; 
-    font-family: 'DNFBitBitv2';
-    -webkit-text-stroke: var(--stroke-color) 4px;
-    text-shadow: 0px 10px 0px var(--stroke-color);
+    font-family: 'DNFBitBitv2', 'NeoDunggeunmoPro-Regular';
+    -webkit-text-stroke: var(--stroke-color) 2px;
+    text-shadow: 0px 5px 0px var(--stroke-color);
     cursor: pointer;
     animation: moveUpDown 2s infinite alternate;
 }
