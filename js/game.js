@@ -87,10 +87,12 @@ function displayScore() {
     scoreDiv.innerHTML = 'score: ' + score;
 }
 
+// 초기 상태
 let obstacles = [];
 let timer = 0;
 let animation;
 
+// 스폰 타이밍
 let maxInterval = 150;
 let minInterval = 70;
 

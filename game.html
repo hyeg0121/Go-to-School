@@ -13,10 +13,6 @@
 
 <body>
     <div class="game-info">
-        <div class="select">
-            <label for="videoSource">Video source: </label><select id="videoSource"></select>
-        </div>
-
         <div class="score">SCORE: 00000</div>
         <div class="lives">
             <div class="life">
@@ -95,18 +91,15 @@
                     console.log((prediction[0].probability * 100).toFixed(0));
                     console.log('web:' + player.y);
 
-                    if (player.y > 965) {
+                    if (player.y > 900) {
                         jumpEffectSound.play();
                         isJumping = true;
                     }
 
                 }
-
-
             }
         }
     </script>
-    <script src="./js/webcam.js"></script>
 </body>
 
 </html>
