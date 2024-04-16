@@ -1,5 +1,9 @@
 const showRankingData = (rankingList) => {
-    const rankingTable = document.createElement('table');
+    // 테이블 요소 만들기
+    const element = 'table';
+    const rankingTable = document.createElement(element);
+
+    // 테이블 요소 안에 thead 넣기
     rankingTable.innerHTML = `
         <thead>
             <tr>
@@ -12,6 +16,7 @@ const showRankingData = (rankingList) => {
         </tbody>
     `;
 
+    // 추가된 tbody
     const tbody = rankingTable.querySelector('tbody');
 
     // 랭킹 데이터가 존재하지 않으면 표시할 내용 설정

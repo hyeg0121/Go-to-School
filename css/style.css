@@ -24,6 +24,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'WavvePADO-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/WavvePADO-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @keyframes moveUpDown {
     0% {
         transform: translateY(0);
@@ -38,7 +45,7 @@
 }
 
 * {
-    font-family: 'DungGeunMo';
+    font-family: 'WavvePADO-Regular', 'DungGeunMo';
     margin: 0;
     padding: 0;
 }
@@ -57,14 +64,14 @@ body {
 
 button {
     height: 72px;
-    font-size: 64px;
+    font-size: 58px;
     outline: none;
     border: none;
     background: none;
-    color: white; 
-    font-family: 'DNFBitBitv2', 'NeoDunggeunmoPro-Regular';
-    -webkit-text-stroke: var(--stroke-color) 2px;
-    text-shadow: 0px 5px 0px var(--stroke-color);
+    color: black; 
+    font-family: 'WavvePADO-Regular', 'DNFBitBitv2', 'NeoDunggeunmoPro-Regular';
+    -webkit-text-stroke: white 2px;
+    text-shadow: 0px 5px 0px rgba(255, 255, 255, 0.5);
     cursor: pointer;
     animation: moveUpDown 2s infinite alternate;
 }

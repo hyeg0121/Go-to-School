@@ -9,15 +9,15 @@
 
 .title,
 .score {
-    font-family: 'DNFBitBitv2', 'DungGeunMo';
-    color: #FFF;
+    font-family: 'WavvePADO-Regular', 'DNFBitBitv2', 'DungGeunMo';
+    color: black;
+    font-weight: 900;
     text-align: center;
-    text-shadow: 0px 10px 0px #0D3E48;
+    text-shadow: 0px 10px 0px rgba(255, 255, 255, 0.5);
     font-size: 120px;
     font-style: normal;
     font-weight: 400;
-    letter-spacing: -15px;
-    -webkit-text-stroke: #0D3E48 5px;
+    -webkit-text-stroke: white 5px;
 }
 
 .buttons {
