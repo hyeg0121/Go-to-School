@@ -6,6 +6,7 @@ const saveData = async () => {
     try {
         const request = {
             name: name,
+            
             score: Number(score)
         };
 
